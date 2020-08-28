@@ -43,8 +43,8 @@ spec:
                   key: user_password
       containers:
         - name: guacamole-app
-          image: guacamole/guacamole:1.1.0
-          imagePullPolicy: IfNotPresent
+          image: tdeutsch/guacamole-branded
+          imagePullPolicy: Always
           env:
             - name: GUACD_HOSTNAME
               value: "guacamole-daemon"

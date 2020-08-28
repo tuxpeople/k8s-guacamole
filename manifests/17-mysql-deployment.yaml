@@ -19,8 +19,8 @@ spec:
     spec:
       containers:
         - name: guacamole-db
-          image: mariadb:10.5.3
-          imagePullPolicy: IfNotPresent
+          image: mariadb:10.5
+          imagePullPolicy: Always
           lifecycle:
             postStart:
               exec:
