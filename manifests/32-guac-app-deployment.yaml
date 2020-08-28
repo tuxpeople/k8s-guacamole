@@ -17,7 +17,7 @@ spec:
     spec:
       initContainers:
         - name: guacamole-init
-          image: d2iqshadowbq/guacd-helper:v1.1.0
+          image: tdeutsch/guacd-helper:1.1.0
           #command: ["/bin/sh", "-c", "--"]
           #args: ["while :; do :; done & kill -STOP $! && wait $!"]
           imagePullPolicy: Always
@@ -43,7 +43,7 @@ spec:
                   key: user_password
       containers:
         - name: guacamole-app
-          image: tdeutsch/guacamole-branded
+          image: tdeutsch/guacamole-branded:1.1.0
           imagePullPolicy: Always
           env:
             - name: GUACD_HOSTNAME
