@@ -31,7 +31,7 @@ RUN yum install -y --disablerepo=ubi-8-appstream --disablerepo=ubi-8-baseos \
 
 RUN set -ex && \
     groupadd --gid 1000 tuxpeople && \
-    useradd --uid 1000 --gid tuxpeople --shell /bin/bash --create-home tuxpeople \
+    useradd --uid 1000 --gid tuxpeople --shell /bin/bash --create-home tuxpeople && \
     chmod +x /import.sh
 
 USER tuxpeople:tuxpeople
