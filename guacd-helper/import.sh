@@ -13,6 +13,10 @@ PASSWORD=$3
 HOSTNAME=$4
 DATABASE=$5
 
+while ! /usr/bin/mysql -h ${HOSTNAME} -u ${USERNAME} -p${PASSWORD} ${DATABASE} -e ";" ; do
+    echo "Can't yet connect to DB  ${DATABASE}..."
+done
+
 echo "Checking if table <$TABLE> exists ..."
 
 # Check if table exists
@@ -32,5 +36,5 @@ else
     echo "Table not exists ..."
     echo "Initializing ..."
     /usr/bin/mysql -h ${HOSTNAME} -u ${USERNAME} -p${PASSWORD} ${DATABASE} < /opt/schemas/001-create-schema.sql
-    /usr/bin/mysql -h ${HOSTNAME} -u ${USERNAME} -p${PASSWORD} ${DATABASE}  < /opt/schemas/002-create-admin-user.sql
+    /usr/bin/mysql -h ${HOSTNAME} -u ${USERNAME} -p${PASSWORD} ${DATABASE} < /opt/schemas/002-create-admin-user.sql
 fi
