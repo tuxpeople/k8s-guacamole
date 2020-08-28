@@ -14,8 +14,10 @@ HOSTNAME=$4
 DATABASE=$5
 
 while ! /usr/bin/mysql -h ${HOSTNAME} -u ${USERNAME} -p${PASSWORD} ${DATABASE} -e ";" ; do
-    echo "Can't yet connect to DB  ${DATABASE}..."
+    echo "Can't yet connect to DB ${DATABASE} on ${HOSTNAME}..."
 done
+
+echo "Connection sucessfull ..."
 
 echo "Checking if table <$TABLE> exists ..."
 
